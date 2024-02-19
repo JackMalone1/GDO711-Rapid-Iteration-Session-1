@@ -1,0 +1,64 @@
+:root{
+    flex-direction: row;
+    justify-content: initial;
+    flex-grow: 1;
+    --border-width: 4px;
+    margin-left: 15px;
+}
+
+.bordered-box {
+    border-width: 4px;
+    border-color: white;
+    border-radius: 15px;
+}
+
+Label{
+    color: blanchedalmond;
+    flex-grow: 0.5;
+}
+
+.actions-box {
+    flex-direction: row;
+    margin-top: 10px;
+    width: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.main-box {
+    width: 1600px;
+    height: 450px;
+    flex-direction: row;
+    margin-bottom: 10px;
+    flex-grow: 1;
+}
+
+.character-box {
+    margin-top: 10px;
+    padding: 10px;
+    flex-grow: 0.25;
+}
+
+.game-box {
+    margin-top: 10px;
+    padding: 10px;
+    flex-grow: 0.75;
+    margin-right: 15px;
+}
+
+.actions-box Button {
+    width: 80px;
+    height: 80px;
+    background-color: orange;
+    border-width: var(--border-width);
+    border-color: white;
+    transition: 0.25s all;
+    color: white;
+    -unity-font-style: bold;
+}
+
+.actions-box Button:hover {
+    background-color: #ff8c00;
+    border-radius: 10px;
+    scale: 1.1;
+}
