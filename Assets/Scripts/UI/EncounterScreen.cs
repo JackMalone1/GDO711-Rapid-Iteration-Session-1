@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using UI.Widgets;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -35,18 +36,24 @@ public class EncounterScreen : MonoBehaviour
         
         var container = Create("container");
         var actionsBox = Create("actions-box", "bordered-box");
+        var extraInfoBox = Create("actions-box", "bordered-box");
         var characterBox = Create("character-box", "bordered-box");
         var gameBox = Create("game-box", "bordered-box");
-        var mainBox = Create("main-box");
+        var mainBox = Create("main-box", "elements-box");
+        var infoBox = Create("info-box", "elements-box");
         
-        var moveButton = Create<Button>();
+        var moveButton = Create<HoverableButton>();
         moveButton.text = "Move";
         moveButton.clicked += MoveClicked;
         actionsBox.Add(moveButton);
         
-        var otherButton = Create<Button>();
+        var otherButton = Create<HoverableButton>();
         otherButton.text = "Other";
         actionsBox.Add(otherButton);
+        
+        Label infoLabel = Create<Label>("Label");
+        infoLabel.text = $"Select a tile before attempting to move";
+        extraInfoBox.Add(infoLabel);
 
         FieldInfo[] fields = player.Stats.GetType().GetFields();
 
@@ -60,8 +67,10 @@ public class EncounterScreen : MonoBehaviour
 
         mainBox.Add(gameBox);
         mainBox.Add(characterBox);
+        infoBox.Add(actionsBox);
+        infoBox.Add(extraInfoBox);
         container.Add(mainBox);
-        container.Add(actionsBox);
+        container.Add(infoBox);
         root.Add(container);
     }
     
