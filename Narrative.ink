@@ -1,4 +1,8 @@
 INCLUDE Catacombs.ink
+INCLUDE AfterFight.ink
+INCLUDE sneak_past_villagers.ink
+
+
 # theme: dark
 # author: Jack Malone
 
@@ -23,18 +27,18 @@ so attempting to cover your tracks should buy you some time. As you finish clear
 
 You slowly make your way over to the entrance to the catacombs so that you can hopefully not be noticed, it's starting to get a bit
 <> too bright outside.
--> go_downstairs
+-> sneak_past_long
 
 === rush_downstairs ===
 There's not enough time to clear away the evidence of where you've been before they find you. The light up here is already getting
 too much for you to be able to survive, looking at the vials on your waste, you only have enough blood to last you a few more days.
 What you have with you know will have to do. You hastely close your bag and make your way to the entrance of the catacombs.
-->go_downstairs
+-> sneak_past_short
 
 
 === go_downstairs ===
  {
- - TURNS_SINCE(-> clear_vase) == 0: 
+ - TURNS_SINCE(-> sneak_past_long) == 0: 
     As you reach the stairs, you think you've managed to hide your tracks this far.
  - else:
     As you reach the top of the stairs, you begin to feel out of breath but it seems like you've managed to get here before anyone
